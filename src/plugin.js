@@ -2,7 +2,7 @@ import cheerio from 'cheerio';
 import fs from 'fs';
 
 // Open stream to log file.
-const logStream = fs.createWriteStream('floob-link.log');
+let logStream = { write: () => {} };
 
 /**
  */
@@ -13,6 +13,10 @@ export default {
      * @type {string}
      */
     name: 'Link Log',
+
+    configure: (pluginConfig = {}, globalConfig = {}) => {
+        logStream = fs.createWriteStream(pluginConfig.logfile || 'floob-link.log');
+    },
 
     /**
      * Processes a single html page.
