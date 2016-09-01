@@ -1,10 +1,10 @@
 import cheerio from 'cheerio';
 import fs from 'fs';
 
-// Open stream to log file.
 let logStream = { write: () => {} };
 
 /**
+ * LinkLogPlugin logs all encountered URLs to a separate log file.
  */
 export default {
 
@@ -14,6 +14,11 @@ export default {
      */
     name: 'Link Log',
 
+    /**
+     * Configures this plugin.
+     * @param {object} pluginConfig Options specific for this plugin
+     * @param {object} globalConfig Global options for floob (currently not in use)
+     */
     configure: (pluginConfig = {}, globalConfig = {}) => {
         logStream = fs.createWriteStream(pluginConfig.logfile || 'floob-link.log');
     },

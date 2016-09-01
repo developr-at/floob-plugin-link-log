@@ -1,7 +1,7 @@
 {
   "name": "floob-plugin-link-log",
   "version": "0.0.1",
-  "description": "-",
+  "description": "Floob LinkLogPlugin logs all encountered URLs.",
   "scripts": {
     "build": "babel src -d lib"
   },
@@ -13,5 +13,8 @@
   },
   "dependencies": {
     "cheerio": "^0.22.0"
-  }
+  },
+  "keywords": [
+    "floobplugin"
+  ]
 }
