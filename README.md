@@ -10,6 +10,14 @@ Default: `"floob-link.log"`
 
 Specifies the path to the log file for the links.
 
+### format
+Type: `String`
+Default: `"[<STATUS>] <URL>"`
+
+Specifies the output format for each found url. Currently allowed placeholders are:
+* <STATUS>: Outputs the status of the http request against the URL
+* <URL>: Outputs the requested URL
+
 ## Usage
 
 ```js
@@ -20,7 +28,8 @@ module.exports = {
         {
             plugin: LinkLogPlugin,
             options: {
-                logfile: 'links.log'
+                logfile: 'links.log',
+                format: 'Request to URL "<URL>" returned a status of "<STATUS>"'
             }
         },
     ]
